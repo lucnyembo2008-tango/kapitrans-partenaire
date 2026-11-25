@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#08233d">
+    <link rel="icon" type="image/png" href="logokapitrans.png">
+    <title>Connexion partenaire | KapiTrans</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="login-page">
+    <main class="login-shell">
+      <section class="login-card">
+        <div class="login-emblem" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none">
+            <path d="M14 21v-5a10 10 0 0 1 20 0v5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <rect x="10" y="21" width="28" height="21" rx="5" stroke="currentColor" stroke-width="2.5"/>
+            <circle cx="24" cy="31" r="2.5" fill="currentColor"/>
+            <path d="M24 33.5v3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="eyebrow">KAPITRANS · ESPACE SÉCURISÉ</p>
+        <h1>Bienvenue</h1>
+        <p class="muted">Connectez-vous à votre espace partenaire.</p>
+
+        <form id="login-form" class="login-form">
+          <label class="sr-only" for="email">Adresse e-mail</label>
+          <div class="login-input-wrap">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M5 20c.5-3.4 3.2-5.5 7-5.5s6.5 2.1 7 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            <input id="email" name="email" type="email" autocomplete="username" placeholder="Adresse e-mail" required>
+          </div>
+
+          <label class="sr-only" for="password">Mot de passe</label>
+          <div class="login-input-wrap">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="5" y="10" width="14" height="11" rx="2.5" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Mot de passe" required>
+          </div>
+
+          <p id="login-error" class="form-error" role="alert" hidden></p>
+          <button id="login-submit" class="button button-primary button-full" type="submit">Se connecter</button>
+        </form>
+        <p class="login-footnote">Accès réservé aux partenaires agréés</p>
+      </section>
+      <p class="login-copyright">KapiTrans <span aria-hidden="true">·</span> Espace professionnel sécurisé</p>
+    </main>
+    <script type="module" src="login.js"></script>
+  </body>
+</html>

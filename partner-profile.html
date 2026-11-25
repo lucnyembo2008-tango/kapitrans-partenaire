@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#081526">
+    <link rel="icon" type="image/png" href="logokapitrans.png">
+    <title>Profil | KapiTrans Partenaire</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="app-layout">
+      <aside id="sidebar" class="sidebar" aria-label="Navigation partenaire"></aside>
+      <main class="main-content">
+        <div class="content-wrap">
+          <header class="page-heading">
+            <h1 class="page-title">Mon profil</h1>
+            <p class="page-subtitle">Consultez votre compte et gérez votre mot de passe.</p>
+          </header>
+
+          <section class="profile-card" aria-labelledby="profile-account-title">
+            <div class="profile-section-heading">
+              <span class="profile-icon" aria-hidden="true">♙</span>
+              <div>
+                <h2 id="profile-account-title">Informations du compte</h2>
+                <p>Les informations associées à votre accès partenaire.</p>
+              </div>
+            </div>
+            <dl class="profile-details">
+              <div>
+                <dt>Entreprise</dt>
+                <dd id="profile-company">Chargement…</dd>
+              </div>
+              <div>
+                <dt>Adresse e-mail</dt>
+                <dd id="profile-email">Chargement…</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="profile-card password-card" aria-labelledby="password-title">
+            <div class="profile-section-heading">
+              <span class="profile-icon password-icon" aria-hidden="true">⌑</span>
+              <div>
+                <h2 id="password-title">Changer le mot de passe</h2>
+                <p>Confirmez votre mot de passe actuel avant d’en choisir un nouveau.</p>
+              </div>
+            </div>
+            <form id="password-form" class="profile-form">
+              <label for="current-password">Mot de passe actuel</label>
+              <input id="current-password" name="currentPassword" type="password" autocomplete="current-password" required>
+
+              <label for="new-password">Nouveau mot de passe</label>
+              <input id="new-password" name="newPassword" type="password" autocomplete="new-password" minlength="6" required>
+
+              <label for="confirm-password">Confirmer le nouveau mot de passe</label>
+              <input id="confirm-password" name="confirmPassword" type="password" autocomplete="new-password" minlength="6" required>
+
+              <p class="profile-hint">Le mot de passe doit contenir au moins 6 caractères.</p>
+              <p id="password-feedback" class="profile-feedback" role="status" aria-live="polite" hidden></p>
+              <button id="password-submit" class="button button-primary profile-submit" type="submit">Mettre à jour le mot de passe</button>
+            </form>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="profile.js"></script>
+  </body>
+</html>

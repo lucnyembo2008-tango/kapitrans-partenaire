@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#081526">
+    <link rel="icon" type="image/png" href="logokapitrans.png">
+    <title>Documents à valider | KapiTrans Partenaire</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="app-layout">
+      <aside id="sidebar" class="sidebar" aria-label="Navigation partenaire"></aside>
+      <main class="main-content">
+        <div class="content-wrap">
+          <header class="page-heading">
+            <h1 class="page-title">Documents à valider</h1>
+            <p class="page-subtitle">Consultez et validez les documents qui vous sont destinés.</p>
+          </header>
+          <section class="panel" aria-label="Documents en attente">
+            <div class="table-wrap">
+              <table class="documents-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Plaque</th>
+                    <th scope="col">Type de document</th>
+                    <th scope="col">Date de la demande</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="documents-body"></tbody>
+              </table>
+              <p id="documents-message" class="table-message">Chargement des documents…</p>
+            </div>
+          </section>
+          <p id="documents-feedback" class="documents-feedback" role="status" aria-live="polite" hidden></p>
+        </div>
+      </main>
+    </div>
+    <dialog id="document-preview" class="document-modal" aria-labelledby="preview-title">
+      <div class="document-modal-header">
+        <div>
+          <p class="eyebrow">APERÇU DE DÉMONSTRATION</p>
+          <h2 id="preview-title">Document</h2>
+        </div>
+        <button id="preview-close" class="button button-view" type="button" aria-label="Fermer l’aperçu">Fermer</button>
+      </div>
+      <div class="document-preview-sheet" role="img" aria-label="Aperçu fictif, aucune image réelle du document n’est disponible">
+        <div class="preview-brand">KAPITRANS <span>PARTENAIRE</span></div>
+        <div class="preview-rule"></div>
+        <p class="preview-label">DOCUMENT TRANSMIS</p>
+        <h3 id="preview-document-type">Type de document</h3>
+        <p class="preview-detail">Véhicule : <strong id="preview-plate">—</strong></p>
+        <div class="preview-placeholder" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <p class="preview-watermark" aria-hidden="true">APERÇU FICTIF</p>
+      </div>
+      <p class="preview-note">Ceci est un aperçu fictif. Le fichier réel n’est pas affiché dans cette page.</p>
+    </dialog>
+    <script type="module" src="documents.js"></script>
+  </body>
+</html>

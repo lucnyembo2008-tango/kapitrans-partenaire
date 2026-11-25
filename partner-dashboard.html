@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#081526">
+    <link rel="icon" type="image/png" href="logokapitrans.png">
+    <title>Tableau de bord | KapiTrans Partenaire</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="dashboard-page">
+    <div class="app-layout">
+      <aside id="sidebar" class="sidebar" aria-label="Navigation partenaire"></aside>
+      <main class="main-content">
+        <div class="content-wrap dashboard-content">
+          <header class="dashboard-header">
+            <div>
+              <p class="dashboard-kicker">ESPACE PARTENAIRE</p>
+              <h1 class="page-title">Vue d’ensemble</h1>
+              <p class="page-subtitle">Bonjour, <strong id="company-welcome">…</strong>. Voici le suivi de vos demandes.</p>
+            </div>
+            <div class="dashboard-account">
+              <span class="account-avatar" id="account-avatar" aria-hidden="true">P</span>
+              <span class="account-details">
+                <strong id="account-company">Partenaire</strong>
+                <span>Compte partenaire</span>
+              </span>
+            </div>
+          </header>
+
+          <section class="stats-grid dashboard-stats" aria-label="Statistiques des demandes">
+            <article class="stat-card dashboard-stat-card">
+              <div class="dashboard-stat-heading">
+                <span class="stat-label">Demandes au total</span>
+                <span class="dashboard-stat-icon primary-blue" aria-hidden="true">▤</span>
+              </div>
+              <p id="total-count" class="stat-value loading" aria-live="polite">—</p>
+              <span class="stat-caption">Toutes les demandes reçues</span>
+            </article>
+            <article class="stat-card dashboard-stat-card">
+              <div class="dashboard-stat-heading">
+                <span class="stat-label">En attente</span>
+                <span class="dashboard-stat-icon amber" aria-hidden="true">◷</span>
+              </div>
+              <p id="pending-count" class="stat-value loading" aria-live="polite">—</p>
+              <span class="stat-caption">À examiner et valider</span>
+            </article>
+            <article class="stat-card dashboard-stat-card">
+              <div class="dashboard-stat-heading">
+                <span class="stat-label">Validées</span>
+                <span class="dashboard-stat-icon green" aria-hidden="true">✓</span>
+              </div>
+              <p id="validated-count" class="stat-value loading" aria-live="polite">—</p>
+              <span class="stat-caption">Demandes traitées avec succès</span>
+            </article>
+            <article class="stat-card dashboard-stat-card">
+              <div class="dashboard-stat-heading">
+                <span class="stat-label">Taux de validation</span>
+                <span class="dashboard-stat-icon blue" aria-hidden="true">％</span>
+              </div>
+              <p id="validation-rate" class="stat-value loading" aria-live="polite">—</p>
+              <span class="stat-caption">Part des demandes validées</span>
+            </article>
+          </section>
+
+          <section class="dashboard-grid" aria-label="Activité des demandes">
+            <article class="panel dashboard-panel status-panel">
+              <header class="dashboard-panel-header">
+                <div>
+                  <h2>État des demandes</h2>
+                  <p>Répartition actuelle de vos dossiers</p>
+                </div>
+                <span class="live-indicator"><span></span> En direct</span>
+              </header>
+              <div class="status-chart" aria-label="Répartition des demandes par statut">
+                <div class="status-chart-row">
+                  <div class="status-chart-label"><span class="chart-dot pending-dot"></span><span>En attente</span><strong id="chart-pending-count">—</strong></div>
+                  <div class="chart-track"><span id="chart-pending-bar" class="chart-bar pending-bar"></span></div>
+                </div>
+                <div class="status-chart-row">
+                  <div class="status-chart-label"><span class="chart-dot validated-dot"></span><span>Validées</span><strong id="chart-validated-count">—</strong></div>
+                  <div class="chart-track"><span id="chart-validated-bar" class="chart-bar validated-bar"></span></div>
+                </div>
+                <div class="status-chart-row">
+                  <div class="status-chart-label"><span class="chart-dot other-dot"></span><span>Autres statuts</span><strong id="chart-other-count">—</strong></div>
+                  <div class="chart-track"><span id="chart-other-bar" class="chart-bar other-bar"></span></div>
+                </div>
+              </div>
+              <div class="chart-summary"><span>Total des demandes</span><strong id="chart-total-count">—</strong></div>
+            </article>
+
+            <aside class="panel dashboard-panel quick-action-panel">
+              <span class="quick-action-icon" aria-hidden="true">↗</span>
+              <p class="dashboard-kicker">À FAIRE</p>
+              <h2>Des demandes vous attendent ?</h2>
+              <p>Consultez les documents transmis et traitez les demandes en attente.</p>
+              <a class="dashboard-action-link" href="partner-documents.html">Ouvrir les documents <span aria-hidden="true">→</span></a>
+            </aside>
+          </section>
+
+          <section class="panel dashboard-panel recent-panel" aria-labelledby="recent-title">
+            <header class="dashboard-panel-header">
+              <div>
+                <h2 id="recent-title">Demandes récentes</h2>
+                <p>Les dernières demandes envoyées à votre entreprise</p>
+              </div>
+              <a class="text-link" href="partner-documents.html">Voir les demandes en attente <span aria-hidden="true">→</span></a>
+            </header>
+            <div class="table-wrap">
+              <table class="documents-table recent-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Document</th>
+                    <th scope="col">Véhicule</th>
+                    <th scope="col">Date de la demande</th>
+                    <th scope="col">Statut</th>
+                  </tr>
+                </thead>
+                <tbody id="recent-documents-body"></tbody>
+              </table>
+              <p id="recent-documents-message" class="table-message">Chargement des demandes…</p>
+            </div>
+          </section>
+
+          <p id="dashboard-error" class="form-error" role="alert" hidden></p>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="dashboard.js"></script>
+  </body>
+</html>
